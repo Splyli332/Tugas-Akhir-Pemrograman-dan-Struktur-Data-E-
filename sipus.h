@@ -70,3 +70,26 @@ void urutkanKode(DaftarBuku& d);
 void urutkanJudul(DaftarBuku& d);
 void urutkanPopuler(DaftarBuku& d);
 int  binarySearchKode(const Buku arr[], int kiri, int kanan, const string& kode);
+
+// ---- Modul Anggota (Patricia) ----
+void inisialisasi(DaftarAnggota& d, int kapasitasAwal);
+void bebaskan(DaftarAnggota& d);
+bool tambahAnggota(DaftarAnggota& d, const Anggota& a);
+bool ubahAnggota(DaftarAnggota& d, const string& id, const Anggota& dataBaru);
+void tampilAnggota(const DaftarAnggota& d);
+Anggota* cariAnggota(DaftarAnggota& d, const string& id);
+
+// ---- Modul Transaksi & Laporan (Patricia) ----
+void inisialisasi(DaftarTransaksi& d, int kapasitasAwal);
+void bebaskan(DaftarTransaksi& d);
+bool pinjamBuku(DaftarTransaksi& t, DaftarBuku& b, DaftarAnggota& a,
+                const string& idAg, const string& kodeBk, const Tanggal& tgl);
+bool kembalikanBuku(DaftarTransaksi& t, DaftarBuku& b, DaftarAnggota& a,
+                    int nomor, const Tanggal& tgl);
+int  selisihHari(const Tanggal& awal, const Tanggal& akhir);
+int  totalDendaRekursif(const Transaksi arr[], int n);
+void riwayatAnggotaRekursif(const Transaksi arr[], int n, const string& idAg);
+void isiRekap(const DaftarTransaksi& t, const DaftarBuku& b, int rekap[][JML_BULAN]);
+void tampilRekap(const int rekap[][JML_BULAN], const string namaKategori[]);
+
+#endif
